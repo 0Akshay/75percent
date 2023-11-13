@@ -4,10 +4,16 @@ body {
     margin: 0px;
 }
 
+.top {
+    padding-bottom: 20px;
+}
+
 .heading {
     text-align: center;
     font-weight: 700;
-    color: rgb(52, 52, 52);
+    font-size: 40px;
+    /* color: rgb(52, 52, 52); */
+    color: black;
 }
 
 .top {
@@ -20,12 +26,45 @@ body {
 }
 
 .section {
+    color: white;
     padding: 50px;
     max-width: 500px;
     margin: auto;
+    background-color: grey;
+    /* border: 2px solid black; */
+    border-radius: 30px;
 }
 
 .btn-primary {
     width: 100%;
 }
+
+.calc {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+      /* background-color: lightblue; */
+    }
+
+    .section {
+        border-radius: 0px;
+        max-width: 600px;
+        margin: auto;
+        padding-top: 20px;
+    }
+
+    .top {
+        background-color: grey;
+        padding-top: 40px;
+    }
+
+    .heading {
+        margin-top: 10px;
+        color: white;
+        font-size: 35px;
+    }
+  }
+
 
