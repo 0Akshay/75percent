@@ -44,10 +44,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media only screen and (max-width: 600px) {
-    body {
-      /* background-color: lightblue; */
-    }
-
     .section {
         border-radius: 0px;
         max-width: 600px;

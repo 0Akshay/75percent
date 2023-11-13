@@ -22,37 +22,53 @@
             <h3>Enter your attendance</h3>
             <br>
             <div class="form-group">
-                <label for="exampleInputEmail1">Subject Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter subject name">
+                <label for="subjectName">Subject Name</label>
+                <input type="text" required class="form-control" id="subjectName" aria-describedby="emailHelp" placeholder="Enter subject name">
             </div>
             <br>
             <div class="form-group">
-                <label for="exampleInputEmail1">Present</label>
-                <input type="number" min="0" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter no. of classes attended">
+                <label for="present">Present</label>
+                <input type="number" min="0" class="form-control" id="present" aria-describedby="emailHelp" placeholder="Enter no. of classes attended">
             </div>
             <br>
             <div class="form-group">
-                <label for="exampleInputEmail1">Current Total</label>
-                <input type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today">
+                <label for="currentTotal">Current Total</label>
+                <input type="number" min="1" class="form-control" id="currentTotal" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today">
             </div>
             <br>
             <div class="form-group">
-                <label for="exampleInputEmail1">Total Classes</label>
-                <input type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter total scheduled classes">
+                <label for="netTotal">Total Classes</label>
+                <input type="number" min="1" class="form-control" id="netTotal" aria-describedby="emailHelp" placeholder="Enter total scheduled classes">
             </div>
-
             <br>
-            <button onclick="myFunction()" class="btn btn-primary calc">Calculate</button>
         </form>  
+        <button onclick="myFunction()" class="btn btn-primary calc">Calculate</button>
     </div>
 
     <script>
         function myFunction() {
-            let x = Document.getElement
-            alert("Hello, world!");
+            var sname = document.getElementById("subjectName").value;
+            var present = eval(document.getElementById("present").value);
+            var ctotal = eval(document.getElementById("currentTotal").value);
+            var total = eval(document.getElementById("netTotal").value);
 
+            console.log(sname, present, ctotal, total);
 
-            
+            if (sname == "" || present == undefined || ctotal == undefined || total == undefined) {
+                alert("Field(s) incomplete!");
+            }
+            else if (Number.isInteger(present) == false || Number.isInteger(ctotal) == false || Number.isInteger(total) == false) {
+                alert("Enter positive integers only!");
+            }
+            else if (present < 0 || ctotal < 1 || total < 1) {
+                alert("Improper values!");
+            }
+            else {
+                var absent = ctotal - present;
+                var tmissable = Math.floor(0.25*total)
+                alert("Absent: " + absent + "\nMissable: " + tmissable);
+            }
+
         }
     </script>
 
