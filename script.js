@@ -7,19 +7,30 @@ function myFunction() {
     console.log(sname, present, ctotal, total);
 
     if (sname == "" || present == undefined || ctotal == undefined || total == undefined) {
-        alert("Field(s) incomplete!");
+        setTimeout(function() {
+            alert("Field(s) incomplete!");
+        }, 350);
     }
     else if (Number.isInteger(present) == false || Number.isInteger(ctotal) == false || Number.isInteger(total) == false) {
-        alert("Enter positive integers only!");
+        setTimeout(function() {
+            alert("Enter positive integers only!");
+        }, 350);
+        
     }
     else if (present < 0 || ctotal < 1 || total < 1) {
-        alert("Improper values!");
+        setTimeout(function() {
+            alert("Improper values!");
+        }, 350);
     }
     else if (present > ctotal) {
-        alert("Present cannot be greater than Current Total");
+        setTimeout(function() {
+            alert("Present cannot be greater than Current Total");
+        }, 350);
     }
     else if (ctotal > total) {
-        alert("Current Total cannot be greater than Total Classes");
+        setTimeout(function() {
+            alert("Current Total cannot be greater than Total Classes");
+        }, 350);
     }
     else {
         var absent = ctotal - present;
