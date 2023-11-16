@@ -1,5 +1,5 @@
 function myFunction() {
-    var sname = document.getElementById("subjectName").value;
+    var sname = document.getElementById("subjectName").options[document.getElementById("subjectName").selectedIndex].text;
     var present = eval(document.getElementById("present").value);
     var ctotal = eval(document.getElementById("currentTotal").value);
     var total = eval(document.getElementById("netTotal").value);
@@ -47,7 +47,7 @@ function myFunction() {
         }
         else {
             var c_to_miss = Math.floor((present - 0.75*ctotal)/0.75);
-
+		
             node5 = document.createTextNode("If you miss more than " + c_to_miss + " classes you will fall below 75%");
         }
 
@@ -91,7 +91,7 @@ function myFunction() {
 
         document.getElementById("info").insertBefore(sect,document.getElementById("info").firstChild);
 
-        document.getElementById("subjectName").value = "";
+        document.getElementById("subjectName").selectedIndex = 0;
         document.getElementById("present").value = "";
         document.getElementById("currentTotal").value = "";
         document.getElementById("netTotal").value = "";
@@ -106,4 +106,21 @@ function myFunction() {
 
 function scrollHome() {
     window.scrollTo(0,0);
+}
+
+function autofilltotal(subject) {
+	const totalClasses= {
+	0: "",
+	1: 78,
+	2: 48,
+	3: 78,
+	4: 78,
+	5: 33,
+	6: 7,
+	7: 33,
+}
+
+	document.querySelector("#netTotal").value = totalClasses[subject]	
+
+
 }

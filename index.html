@@ -22,24 +22,37 @@
             <br>
             <h3>Enter your attendance</h3>
             <br>
-            <div class="form-group">
+            
+	<div class="form-group">
                 <label for="subjectName">Subject Name</label>
-                <input type="text" required class="form-control" id="subjectName" aria-describedby="emailHelp" placeholder="Enter subject name" onclick="scrollHome()">
-            </div>
+		<!--
+                <input type="text" required class="form-control" id="subjectName" aria-describedby="emailHelp" placeholder="Enter subject name" onclick="scrollHome()"> -->
+            
+            <select id="subjectName" class="form-select" aria-label="Default select example" onchange="autofilltotal(value)" onclick="scrollHome()">
+                <option selected value="0">Select subject</option>
+                <option value="1">ADBMS</option>
+                <option value="2">ASE</option>
+                <option value="3">Computer Graphics</option>
+		<option value="4">Core Java</option>
+                <option value="5">Graph Theory</option>
+                <option value="6">FBL</option>
+		<option value="7">Business Communication</option>
+	    </select>
+	</div> 
             <br>
             <div class="form-group">
                 <label for="present">Present</label>
-                <input type="number" min="0" class="form-control" id="present" aria-describedby="emailHelp" placeholder="Enter no. of classes attended" onclick="scrollHome()">
+                <input type="number" min="0" class="form-control" id="present" aria-describedby="emailHelp" placeholder="Enter no. of classes attended" onfocus="scrollHome()">
             </div>
             <br>
             <div class="form-group">
                 <label for="currentTotal">Current Total</label>
-                <input type="number" min="1" class="form-control" id="currentTotal" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today" onclick="scrollHome()">
+                <input type="number" min="1" class="form-control" id="currentTotal" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today" onfocus="scrollHome()">
             </div>
             <br>
             <div class="form-group">
                 <label for="netTotal">Total Classes</label>
-                <input type="number" min="1" class="form-control" id="netTotal" aria-describedby="emailHelp" placeholder="Enter total scheduled classes" onclick="scrollHome()">
+                <input type="number" min="1" class="form-control" id="netTotal" aria-describedby="emailHelp" placeholder="Enter total scheduled classes" onfocus="scrollHome()">
             </div>
             <br>
         </form>
