@@ -33,6 +33,17 @@ function myFunction() {
         var cattendance = Math.round((present/ctotal)*10000)/100;
         var pattendance = Math.round(((present + rclasses)/total)*10000)/100;
 
+        var pcolor = undefined;
+        if (cattendance >= 85) {
+            pcolor = "#428a48";
+        }
+        else if (cattendance < 85 && cattendance >= 75) {
+            pcolor = "#bd9b3e";
+        }
+        else {
+            pcolor = "#bd3e3e";
+        }
+
         // alert("Absent: " + absent + "\nTotal Missable: " + tmissable + "\nMissable: " + missable + "\nRemaining classes: " + rclasses + "\nAttendence: " + cattendance + "\nProspective: " + pattendance);
         
         const n1 = document.createTextNode(cattendance + "% (" + present + "/" + ctotal + ") Total: " + total);
@@ -96,6 +107,9 @@ function myFunction() {
         const sect = document.createElement("div");
         sect.className = "rsection";
 
+        sect.style.backgroundColor = pcolor;
+
+
 
         sect.appendChild(sub_heading);
         sect.appendChild(p1);
@@ -106,22 +120,17 @@ function myFunction() {
         sect.appendChild(p2);
         p2.appendChild(node6);
 
-        
-        setTimeout(function(){
-            //do what you need here
-        }, 1000);
-
-        document.getElementById("info").insertBefore(sect,document.getElementById("info").firstChild);
-
         document.getElementById("subjectName").selectedIndex = 0;
         document.getElementById("present").value = "";
         document.getElementById("currentTotal").value = "";
         document.getElementById("netTotal").value = "";
 
-        window.scrollBy(0, 500);
-
-        // const element = document.getElementById("body");
-        // element.appendChild(para);
+        
+        setTimeout(function() {
+            // This code will be executed after 1 second
+            document.getElementById("info").insertBefore(sect,document.getElementById("info").firstChild);
+            window.scrollBy(0, 500);
+        }, 500);
     }
 }
 

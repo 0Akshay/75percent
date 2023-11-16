@@ -15,48 +15,43 @@
 <body>
     <div class="top">
         <h1 class="heading">75percent.info</h1>
+        <h6 class="heading2">powered by desperation</h6>
     </div>
 
     <div class="section section0">
         <form>
-            <br>
-            <h3>Enter your attendance</h3>
-            <br>
-            
-	<div class="form-group">
+            <h4>Enter your attendance</h4>
+            <div class="form-group">
                 <label for="subjectName">Subject Name</label>
-		<!--
-                <input type="text" required class="form-control" id="subjectName" aria-describedby="emailHelp" placeholder="Enter subject name" onclick="scrollHome()"> -->
-            
-            <select id="subjectName" class="form-select" aria-label="Default select example" onchange="autofilltotal(value)" onclick="scrollHome()">
-                <option selected value="0">-Select subject-</option>
-                <option value="1">Advanced Database Management Systems</option>
-                <option value="2">Advanced Software Engineering Principles</option>
-                <option value="3">Computer Graphics and Animations</option>
-		        <option value="4">Core Java</option>
-                <option value="5">Graph Theory</option>
-                <option value="6">Foreign Business Language</option>
-		        <option value="7">Professional & Business Communication</option>
-	    </select>
-	</div> 
+                <select id="subjectName" class="form-select" aria-label="Default select example" onchange="autofilltotal(value)">
+                    <option selected value="0">-Select subject-</option>
+                    <option value="1">Advanced Database Management Systems</option>
+                    <option value="2">Advanced Software Engineering Principles</option>
+                    <option value="3">Computer Graphics and Animations</option>
+                    <option value="4">Core Java</option>
+                    <option value="5">Graph Theory</option>
+                    <option value="6">Foreign Business Language</option>
+                    <option value="7">Professional & Business Communication</option>
+                </select>
+            </div> 
             <br>
             <div class="form-group">
                 <label for="present">Present</label>
-                <input type="number" min="0" class="form-control" id="present" aria-describedby="emailHelp" placeholder="Enter no. of classes attended" onclick="scrollHome()">
+                <input type="number" min="0" class="form-control" id="present" aria-describedby="emailHelp" placeholder="Enter no. of classes attended">
             </div>
             <br>
             <div class="form-group">
                 <label for="currentTotal">Current Total</label>
-                <input type="number" min="1" class="form-control" id="currentTotal" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today" onclick="scrollHome()">
+                <input type="number" min="1" class="form-control" id="currentTotal" aria-describedby="emailHelp" placeholder="Enter no. of classes as of today">
             </div>
             <br>
             <div class="form-group">
                 <label for="netTotal">Total Classes</label>
-                <input type="number" min="1" class="form-control" id="netTotal" aria-describedby="emailHelp" placeholder="Enter total no. of scheduled classes" onclick="scrollHome()">
+                <input type="number" min="1" class="form-control" id="netTotal" aria-describedby="emailHelp" placeholder="Enter total no. of scheduled classes">
             </div>
             <br>
         </form>
-        <button onclick="myFunction()" class="btn btn-primary calc">Calculate</button>
+        <button onclick="myFunction()" class="btn btn-primary calc">Analyze</button>
     </div>
 
     <div id="info"></div>
