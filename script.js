@@ -47,8 +47,13 @@ function myFunction() {
         }
         else {
             var c_to_miss = Math.floor((present - 0.75*ctotal)/0.75);
-		
+	
+	if (c_to_miss != 0){
             node5 = document.createTextNode("If you miss more than " + c_to_miss + " classes you will fall below 75%");
+	}
+	else {
+	node5 = document.createTextNode("If you miss the next class you will fall below 75%");
+}
         }
 
         var node6 = undefined;
