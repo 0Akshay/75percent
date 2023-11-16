@@ -32,11 +32,13 @@ function myFunction() {
         }
         var cattendance = Math.round((present/ctotal)*10000)/100;
         var pattendance = Math.round(((present + rclasses)/total)*10000)/100;
-        // alert("Absent: " + absent + "\nTotal Missable: " + tmissable + "\nMissable: " + missable + "\nRemaining classes: " + rclasses + "\nAttendence: " + cattendance + "\nProspective: " + pattendance);
 
+        // alert("Absent: " + absent + "\nTotal Missable: " + tmissable + "\nMissable: " + missable + "\nRemaining classes: " + rclasses + "\nAttendence: " + cattendance + "\nProspective: " + pattendance);
+        
+        const n1 = document.createTextNode(cattendance + "% (" + present + "/" + ctotal + ") Total: " + total);
         const node0 = document.createTextNode(sname);
-        const node1 = document.createTextNode("Your current attendance is " + cattendance + "%");
-        // const node3 = document.createTextNode("Absent: " + absent + "\nTotal Missable: " + tmissable + "\nMissable: " + missable + "\nRemaining classes: " + rclasses + "\nAttendence: " + cattendance + "\nProspective: " + pattendance);
+        // const node1 = document.createTextNode("Your current attendance is " + cattendance + "%");
+
         const node4 = document.createTextNode("Attending all remaining classes will get you at " + pattendance + "%")
 
         var node5 = document.createTextNode("");
@@ -48,13 +50,15 @@ function myFunction() {
         else {
             var c_to_miss = Math.floor((present - 0.75*ctotal)/0.75);
 	
-	if (c_to_miss != 0){
-            node5 = document.createTextNode("If you miss more than " + c_to_miss + " classes you will fall below 75%");
-	}
-	else {
-	node5 = document.createTextNode("If you miss the next class you will fall below 75%");
-}
+	        if (c_to_miss != 0){
+                 node5 = document.createTextNode("If you miss more than next " + c_to_miss + " classes you will fall below 75%");
+	        }
+	        else {
+	            node5 = document.createTextNode("If you miss the next class you will fall below 75%");
+            }
         }
+
+        var n2 = document.createTextNode(rclasses + " regular " + wordClass(rclasses) + " remain" + singularplural(rclasses) + ". ")
 
         var node6 = undefined;
         if (c_to_attend > rclasses) {
@@ -66,33 +70,46 @@ function myFunction() {
             node6 = document.createTextNode("You need " + extra_classes + " extra "+ word_class);
         }
         else {
-            node6 = document.createTextNode("You do not need any extra classes.");
+            node6 = document.createTextNode("You do not need any extra class.");
         }
 
-
+        
+        const p1 = document.createElement("h4");
         const sub_heading = document.createElement("h2");
         const para1 = document.createElement("p");
         const para2 = document.createElement("p");
         const para3 = document.createElement("p");
         const para4 = document.createElement("p");
+        const p2 = document.createElement("p");
         const para5 = document.createElement("p");
         
+        p1.appendChild(n1);
+        p2.appendChild(n2);
         sub_heading.appendChild(node0);
-        para1.appendChild(node1)
+        // para1.appendChild(node1)
         // para2.appendChild(node3)
         para3.appendChild(node4)
         para4.appendChild(node5);
         para5.appendChild(node6);
+
         
         const sect = document.createElement("div");
         sect.className = "rsection";
 
+
         sect.appendChild(sub_heading);
-        sect.appendChild(para1);
+        sect.appendChild(p1);
+        // sect.appendChild(para1);
         // sect.appendChild(para2);
         sect.appendChild(para3);
         sect.appendChild(para4);
-        sect.appendChild(para5);
+        sect.appendChild(p2);
+        p2.appendChild(node6);
+
+        
+        setTimeout(function(){
+            //do what you need here
+        }, 1000);
 
         document.getElementById("info").insertBefore(sect,document.getElementById("info").firstChild);
 
@@ -101,12 +118,11 @@ function myFunction() {
         document.getElementById("currentTotal").value = "";
         document.getElementById("netTotal").value = "";
 
-        window.scrollBy(0, 200);
+        window.scrollBy(0, 500);
 
         // const element = document.getElementById("body");
         // element.appendChild(para);
     }
-
 }
 
 function scrollHome() {
@@ -122,10 +138,32 @@ function autofilltotal(subject) {
 	4: 78,
 	5: 33,
 	6: 7,
-	7: 33,
-}
+	7: 33
+    }
 
 	document.querySelector("#netTotal").value = totalClasses[subject]	
 
+
+}
+
+function wordClass(c) { 
+    if (c == 1) {
+        return "class"
+    }
+
+    else {
+        return "classes"
+    }
+
+}
+
+function singularplural(c) { 
+    if (c == 1) {
+        return "s"
+    }
+
+    else {
+        return ""
+    }
 
 }
