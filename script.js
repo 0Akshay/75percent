@@ -152,7 +152,7 @@ function scrollHome() {
 function autofilltotal(subject) {
 	const totalClasses= {
 	0: "",
-	1: 78,
+	1: 80,
 	2: 48,
 	3: 78,
 	4: 78,
