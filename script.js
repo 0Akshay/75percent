@@ -3,13 +3,14 @@ addEventListener('keyup', function(event) {
     event.preventDefault();
 
     // when the Enter key (13) is pressed, trigger a button click
-    if (event.key === "Enter" && document.activeElement.id != "enterbutton" ) {
-        // document.getElementById('enterbutton').focus();
+    if (event.key === "Enter" && document.activeElement.id != "enterbutton" && document.activeElement.id != "subjectName") {
+        document.getElementById('enterbutton').focus();
         document.getElementById('enterbutton').click();
     }
 
     else if (event.key == "t") {
         scrollHome();
+        document.getElementById('subjectName').focus();
     }
 });
 
