@@ -1,3 +1,18 @@
+// add listener for keyup event
+addEventListener('keyup', function(event) {
+    event.preventDefault();
+
+    // when the Enter key (13) is pressed, trigger a button click
+    if (event.key === "Enter" && document.activeElement.id != "enterbutton" ) {
+        // document.getElementById('enterbutton').focus();
+        document.getElementById('enterbutton').click();
+    }
+
+    else if (event.key == "t") {
+        scrollHome();
+    }
+});
+
 function myFunction() {
     var sname = document.getElementById("subjectName").options[document.getElementById("subjectName").selectedIndex].text;
     var present = eval(document.getElementById("present").value);
