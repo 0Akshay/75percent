@@ -8,7 +8,7 @@ addEventListener('keyup', function(event) {
         document.getElementById('enterbutton').click();
     }
 
-    else if (event.key == "t") {
+    else if (event.key == "t" || event.key == "T") {
         scrollHome();
         document.getElementById('subjectName').focus();
     }
